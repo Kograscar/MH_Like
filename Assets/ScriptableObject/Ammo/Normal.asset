@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5fa37410dbe53a4bbcfb5e4fcbc2bbc, type: 3}
-  m_Name: BaseGS
+  m_Script: {fileID: 11500000, guid: dad786efefe28524c91c219605d372d6, type: 3}
+  m_Name: Normal
   m_EditorClassIdentifier: 
-  mesh: {fileID: 1986236054538227678, guid: 9fc909ef78b918c41acf7689c943476d, type: 3}
-  damage: 100
-  weaponType: 0
+  ammo: {fileID: 0}
+  ammoType: 0
+  speed: 5
+  dmgMultiplicator: 5
+  koDmg: 3
+  spreadPotential: 0
+  piercingPotential: 0

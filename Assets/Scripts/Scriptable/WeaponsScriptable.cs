@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Weapon", menuName = "Weapons")]
-public class Weapons : ScriptableObject
+public class WeaponsScriptable : ScriptableObject
 {
     public GameObject mesh;
-    public float damage;
-    public enum WeaponType { GS, HBG};
     public WeaponType weaponType;
+    public float damage;
+    public WeaponTree weapon;
     public int moveset;
     public int guardPower = 50;
 }

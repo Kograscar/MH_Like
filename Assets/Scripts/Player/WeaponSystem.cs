@@ -5,12 +5,15 @@ using UnityEngine.InputSystem;
 
 public class WeaponSystem : MonoBehaviour
 {
-    public Weapons weaponScriptable;
+    public WeaponsScriptable weaponScriptable;
     public List<BoxCollider> weaponColliders = new List<BoxCollider>();
+    public Transform firePoint;
     public Transform weaponMesh;
     public Animator animator;
     public float damageMultiplicator = 1;
     public bool guarding;
+    public ItemPouchManager pouchManager;
+    public GameObject selectedAmmo;
 
     bool A_Input;
     bool B_Input;
@@ -70,6 +73,7 @@ public class WeaponSystem : MonoBehaviour
 
     private void Update()
     {
+        #region animator
         animator.SetBool("A", A_Input);
         animator.SetBool("B", B_Input);
         animator.SetBool("X", X_Input);
@@ -79,6 +83,12 @@ public class WeaponSystem : MonoBehaviour
         animator.SetBool("LT", LT_Input);
         animator.SetBool("RT", RT_Input);
         animator.SetBool("Guard", guarding);
+        #endregion
+
+        if(weaponScriptable.weaponType == WeaponType.Ranger)
+        {
+            selectedAmmo = pouchManager.selectedAmmo;
+        }
     }
 
     public void EnableCollider(int numb)
@@ -91,5 +101,23 @@ public class WeaponSystem : MonoBehaviour
         Instantiate(weaponScriptable.mesh, weaponMesh);
         weaponColliders.AddRange(weaponMesh.GetComponentsInChildren<BoxCollider>());
         animator.runtimeAnimatorController = GameManager.Instance.moveset[weaponScriptable.moveset];
+
+    }
+
+    public void Fire()
+    {
+        GameObject ammo = pouchManager.selectedAmmo;
+
+        //animator.SetInteger("Recoil", weaponScriptable);
+    }
+
+    public void Reload()
+    {
+
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        
     }
 }
