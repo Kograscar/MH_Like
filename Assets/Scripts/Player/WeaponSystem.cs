@@ -15,7 +15,7 @@ public class WeaponSystem : MonoBehaviour
     public ItemPouchManager pouchManager;
     public GameObject selectedAmmo;
 
-    bool A_Input;
+    bool A_Input;   
     bool B_Input;
     bool X_Input;
     bool Y_Input;
